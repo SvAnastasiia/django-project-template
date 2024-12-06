@@ -11,6 +11,7 @@ Includes initial setup for a Django project.
 * Drf-spectacular for Swagger documentation generating
 * Pre-commit hooks for black, isort and flake8
 * Environment variables validation and reading from .env file using pydantic
+* AWS S3 storage connection configured
 
 ### How do I get set up? ###
 
