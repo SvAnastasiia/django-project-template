@@ -1,0 +1,30 @@
+fail_fast: true
+repos:
+  - repo: https://github.com/ambv/black
+    rev: 24.2.0
+    hooks:
+      - id: black
+        stages: [pre-commit, pre-push]
+        language_version: python3.9
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.3.1
+    hooks:
+      - id: autoflake
+        stages: [ pre-commit, pre-push ]
+        language_version: python3.9
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        stages: [pre-commit, pre-push]
+        args: [--profile, black]
+  - repo: local
+    hooks:
+      - id: django-test
+        stages: [pre-push]
+        name: django-test
+        entry: python manage.py test
+        always_run: true
+        pass_filenames: false
+        language: system
+        types: [python]
