@@ -27,3 +27,4 @@ Includes initial setup for a Django project.
 * Create superuser using `python manage.py createsuperuser`
 * Collect static files using `python manage.py collectstatic`
 * Run the server using `python manage.py runserver`
+* Add application to the project using `python manage.py startapp <app_name>`, register it in the settings.py file in the INSTALLED_APPS list
