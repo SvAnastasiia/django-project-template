@@ -28,6 +28,11 @@ else
     echo "Virtual environment created in $venv_dir."
 fi
 
-source $PROJECT_DIR/venv/bin/activate
+# Install Poetry
+curl -sSL https://install.python-poetry.org | python3 -
+sudo apt-get install python3-poetry
 pip install poetry
+
+# Install dependencies
+source $PROJECT_DIR/venv/bin/activate
 poetry install
