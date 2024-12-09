@@ -38,4 +38,4 @@ Includes initial setup for a Django project.
 ### What a developer should know? ###
 
 * Use pre-commit hooks to ensure code quality: `pre-commit install`, in case change needed in the hooks, modify `.pre-commit-config.yaml` file, more details here: https://pre-commit.com/
-* Working with poetry for dependency management: `poetry add <package_name>`, `poetry remove <package_name>`, `poetry update`, `poetry install`..., more here: https://python-poetry.org/docs/managing-dependencies/
+* Working with poetry for dependency management: `poetry add <package_name>`, `poetry remove <package_name>`, `poetry update`, `poetry install`..., more here: https://python-poetry.org/docs/managing-dependencies/. Poetry groups are used to separate the dependencies into groups, for example, `dev` group is used for code enhancement libraries, `setup` group is used for deployment-needed libraries, `test` group can be used for testing dependencies etc.
