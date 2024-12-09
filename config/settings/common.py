@@ -182,16 +182,22 @@ LOGGING_DIR = os.path.join(BASE_DIR, "logs")
 os.makedirs(LOGGING_DIR, exist_ok=True)
 
 
-def get_log_file_handler(filename):
+# Utility to get rotating file handler
+def get_rotating_file_handler(
+    filename, level="DEBUG" if ENVIRONMENT == DEVELOPMENT else "ERROR"
+):
     return {
-        "level": "DEBUG",
-        "class": "logging.FileHandler",
+        "level": level,  # Production should use INFO or higher
+        "class": "logging.handlers.RotatingFileHandler",
         "filename": os.path.join(LOGGING_DIR, f"{filename}.log"),
+        "maxBytes": 10485760,  # 10 MB
+        "backupCount": 3,  # Keep last 3 log files
         "formatter": "simple",
     }
 
 
-def get_logger_desc(handler, level="DEBUG"):
+# Utility to configure app-specific loggers
+def get_logger_desc(handler, level="DEBUG" if ENVIRONMENT == DEVELOPMENT else "ERROR"):
     return {
         "handlers": [handler],
         "level": level,
@@ -199,16 +205,49 @@ def get_logger_desc(handler, level="DEBUG"):
     }
 
 
-APP_LOGGERS = ("app",)  # create a separate logger for each app
+APP_LOGGERS = ("app",)  # Replace with actual app names
 
-# setup logging for warnings
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "handlers": {k: get_log_file_handler(k) for k in APP_LOGGERS},
-    "loggers": {k: get_logger_desc(k) for k in APP_LOGGERS},
     "formatters": {
-        "simple": {"format": "[{levelname}] {asctime} - {message}", "style": "{"}
+        "json": {
+            "format": '{"time": "%(asctime)s", "level": "%(levelname)s", '
+            '"message": "%(message)s", "logger": "%(name)s"}',
+        },
+        "simple": {"format": "[{levelname}] {asctime}s - {message}", "style": "{"},
+    },
+    "handlers": {
+        **{k: get_rotating_file_handler(k) for k in APP_LOGGERS},
+        "file": {
+            "level": "ERROR",
+            "class": "logging.FileHandler",
+            "filename": os.path.join(LOGGING_DIR, f"error.log"),
+            "formatter": "simple",
+        },
+        "console": {
+            "level": "ERROR",
+            "class": "logging.StreamHandler",
+            "formatter": "json",
+        },
+    },
+    "loggers": {
+        **{k: get_logger_desc(k) for k in APP_LOGGERS},
+        "": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
     },
 }
 
