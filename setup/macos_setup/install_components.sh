@@ -29,8 +29,7 @@ else
 fi
 
 # Install Poetry
-curl -sSL https://install.python-poetry.org | python3 -
-sudo apt-get install python3-poetry
+brew install poetry
 pip install poetry
 
 # Install dependencies
