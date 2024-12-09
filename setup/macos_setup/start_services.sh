@@ -7,5 +7,5 @@ brew services start redis
 brew services start postgresql@13
 
 # Create PostgreSQL database
-createuser <project-name> --createdb
+createuser <project-name>-user --createdb
 createdb <project-name> -U <project-name>-user
