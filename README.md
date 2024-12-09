@@ -34,3 +34,8 @@ Includes initial setup for a Django project.
 * Do not put any logic in the views.py file, create a `services` directory inside your app, create a file with meaningful service name and separate your logic there, if some functions have similar purposes, organize it into service class.
 * If service is used in multiple apps, create a `services` directory in the root of the project, move your logic there and import it in the apps where it is needed.
 * Add typing to your functions and classes, use type hints and type checking.
+
+### What a developer should know? ###
+
+* Use pre-commit hooks to ensure code quality: `pre-commit install`, in case change needed in the hooks, modify `.pre-commit-config.yaml` file, more details here: https://pre-commit.com/
+* Working with poetry for dependency management: `poetry add <package_name>`, `poetry remove <package_name>`, `poetry update`, `poetry install`..., more here: https://python-poetry.org/docs/managing-dependencies/
