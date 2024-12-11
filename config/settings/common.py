@@ -20,12 +20,14 @@ INSTALLED_APPS = [
     # Custom apps
     # *your apps list here*
     # Packages
+    "corsheaders",
     "drf_spectacular",
     "rest_framework",
     "storages",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
