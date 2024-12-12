@@ -5,13 +5,13 @@ repos:
     hooks:
       - id: black
         stages: [pre-commit, pre-push]
-        language_version: python3.9
+        language_version: python3.13
   - repo: https://github.com/PyCQA/autoflake
     rev: v2.3.1
     hooks:
       - id: autoflake
         stages: [ pre-commit, pre-push ]
-        language_version: python3.9
+        language_version: python3.13
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
     hooks:
