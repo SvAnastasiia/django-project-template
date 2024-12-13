@@ -17,12 +17,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Custom apps
-    # *your apps list here*
     # Packages
+    # ! Important: should be above created apps
+    "django_dramatiq",
+    "django_periodiq",
     "drf_spectacular",
     "rest_framework",
     "storages",
+    # Custom apps
+    "example_app",
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,33 @@ CACHES = {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": str(env.CACHE_DB),
     }
+}
+
+# Worker
+DRAMATIQ_BROKER = {
+    "BROKER": "dramatiq.brokers.redis.RedisBroker",
+    "OPTIONS": {
+        "url": str(env.DRAMATIQ_BROKER_URL),
+    },
+    "MIDDLEWARE": [
+        "dramatiq.middleware.AgeLimit",
+        "dramatiq.middleware.TimeLimit",
+        "dramatiq.middleware.Callbacks",
+        "dramatiq.middleware.Retries",
+        "dramatiq.middleware.Pipelines",
+        "django_dramatiq.middleware.DbConnectionsMiddleware",
+        "django_dramatiq.middleware.AdminMiddleware",
+        "periodiq.PeriodiqMiddleware",
+    ],
+}
+DRAMATIQ_TASKS_DATABASE = "default"
+
+DRAMATIQ_RESULT_BACKEND = {
+    "BACKEND": "dramatiq.results.backends.redis.RedisBackend",
+    "BACKEND_OPTIONS": {
+        "url": str(env.DRAMATIQ_RESULTS_URL),
+    },
+    "MIDDLEWARE_OPTIONS": {"result_ttl": 60000},
 }
 
 # Django has default user model, but you can create your own and override like this:

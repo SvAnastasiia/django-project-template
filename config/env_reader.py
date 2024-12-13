@@ -25,6 +25,8 @@ class VariablesFromEnvironment(BaseSettings):
     DB_PORT: str = "5432"
 
     CACHE_DB: Optional[RedisDsn] = "redis://localhost:6379/0"
+    DRAMATIQ_BROKER_URL: Optional[RedisDsn] = "redis://localhost:6379"
+    DRAMATIQ_RESULTS_URL: Optional[RedisDsn] = "redis://localhost:6379"
 
     CSRF_TRUSTED_ORIGINS: Optional[str] = (
         # Website, frontend urls separated with comma
