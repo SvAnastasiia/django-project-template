@@ -15,6 +15,7 @@ Includes initial setup for a Django project.
 
 ### How do I get set up? ###
 
+#### No Docker ####
 * Install python 3.13
 * Install poetry
 * Clone the repository
@@ -28,6 +29,13 @@ Includes initial setup for a Django project.
 * Collect static files using `python manage.py collectstatic`
 * Run the server using `python manage.py runserver`
 * Add application to the project using `python manage.py startapp <app_name>`, register it in the settings.py file in the INSTALLED_APPS list
+
+#### Docker-compose ####
+* Install docker and docker-compose
+* Clone the repository
+* Create .env file in the root directory (same level as .env.example) and add the variables that are contained in .env.example file
+* Run the docker-compose using `docker-compose up --build`
+* If the permission issues with executable file occur, run `chmod +x ./entrypoint-local.sh` to make the file executable and rebuild the docker image using `docker-compose up --build`
 
 ### Best practices regarding code organisation ###
 
