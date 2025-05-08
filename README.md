@@ -33,7 +33,7 @@ Includes initial setup for a Django project.
 #### Docker-compose ####
 * Install docker and docker-compose
 * Clone the repository
-* Create .env file in the root directory (same level as .env.example) and add the variables that are contained in .env.example file
+* Create .env file in the root directory (same level as .env.example) and add the variables that are contained in .env.example file. Pay attention to service names in compose file while creating the .env file, for example database is named 'db', so you should use this value as host instead of localhost.
 * Run the docker-compose using `docker-compose up --build`
 * If the permission issues with executable file occur, run `chmod +x ./entrypoint-local.sh` to make the file executable and rebuild the docker image using `docker-compose up --build`
 
