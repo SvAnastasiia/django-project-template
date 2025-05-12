@@ -35,6 +35,7 @@ Includes initial setup for a Django project.
 * Clone the repository
 * Create .env file in the root directory (same level as .env.example) and add the variables that are contained in .env.example file. Pay attention to service names in compose file while creating the .env file, for example database is named 'db', so you should use this value as host instead of localhost.
 * Run the docker-compose using `docker-compose up --build`
+* There might be some issues with the entrypoint file, if you see the error `./entrypoint-local.sh: no such file or directory`, it means that the entrypoint file is not executable. This can happen if you are using Windows and the file was created with Windows line endings / they were applied in Git. To fix this, run `dos2unix ./entrypoint-local.sh` to convert the file to Unix line endings.
 * If the permission issues with executable file occur, run `chmod +x ./entrypoint-local.sh` to make the file executable and rebuild the docker image using `docker-compose up --build`
 
 ### Best practices regarding code organisation ###
