@@ -1,4 +1,5 @@
 import datetime
+import sentry_sdk
 import os
 from pathlib import Path
 
@@ -254,3 +255,16 @@ CORS_ALLOW_CREDENTIALS = True  # allow browser do CORS with credential
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CSRF_TRUSTED_ORIGINS = env.CSRF_TRUSTED_ORIGINS
+
+# Sentry
+SENTRY_DSN = env.SENTRY_DSN
+SENTRY_SAMPLE_RATE = env.SENTRY_SAMPLE_RATE
+SENTRY_ENABLE_TRACING = env.SENTRY_ENABLE_TRACING
+
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    environment=ENVIRONMENT,
+    sample_rate=SENTRY_SAMPLE_RATE,
+    enable_tracing=SENTRY_ENABLE_TRACING,
+    send_default_pii=True,
+)

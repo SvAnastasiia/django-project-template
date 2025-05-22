@@ -46,6 +46,11 @@ class VariablesFromEnvironment(BaseSettings):
     AWS_S3_ORIGIN_URL: Optional[str] = ""
     AWS_S3_ROOT_URL: Optional[str] = ""
 
+    # Sentry settings
+    SENTRY_DSN: Optional[str] = ""
+    SENTRY_SAMPLE_RATE: int = 0
+    SENTRY_ENABLE_TRACING: bool = True
+
     class Config:
         """Defines configuration for pydantic environment loading"""
 
