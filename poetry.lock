@@ -335,6 +335,7 @@ version = "0.11.6"
 description = "A Django app for Dramatiq."
 optional = false
 python-versions = ">=3.8"
+groups = ["main"]
 files = [
     {file = "django_dramatiq-0.11.6-py3-none-any.whl", hash = "sha256:9843f5e4d019bf8f8c89e78b39ba037b3552f17f587f49633cc5e13774ac0ab0"},
     {file = "django_dramatiq-0.11.6.tar.gz", hash = "sha256:f8b47a1654c4a8a1a0b4d3215b6b3ec189cb28dd4dec5afb5437ada48ee38ff1"},
@@ -370,6 +371,7 @@ version = "0.3.0"
 description = "A Django app for Periodiq."
 optional = false
 python-versions = ">=3.7"
+groups = ["main"]
 files = [
     {file = "django_periodiq-0.3.0-py2.py3-none-any.whl", hash = "sha256:f16402767afa664b11ffbe0add544415e104e6390e9ad01151a5ceaaaed49cc1"},
     {file = "django_periodiq-0.3.0.tar.gz", hash = "sha256:30304e96846549cae468e53dcf788e078dc742b3619a3dc556f533b9cad49fee"},
@@ -385,6 +387,7 @@ version = "5.4.0"
 description = "Full featured redis cache backend for Django."
 optional = false
 python-versions = ">=3.6"
+groups = ["main"]
 files = [
     {file = "django-redis-5.4.0.tar.gz", hash = "sha256:6a02abaa34b0fea8bf9b707d2c363ab6adc7409950b2db93602e6cb292818c42"},
     {file = "django_redis-5.4.0-py3-none-any.whl", hash = "sha256:ebc88df7da810732e2af9987f7f426c96204bf89319df4c6da6ca9a2942edd5b"},
@@ -467,6 +470,7 @@ version = "1.17.1"
 description = "Background Processing for Python 3."
 optional = false
 python-versions = ">=3.8"
+groups = ["main"]
 files = [
     {file = "dramatiq-1.17.1-py3-none-any.whl", hash = "sha256:951cdc334478dff8e5150bb02a6f7a947d215ee24b5aedaf738eff20e17913df"},
     {file = "dramatiq-1.17.1.tar.gz", hash = "sha256:2675d2f57e0d82db3a7d2a60f1f9c536365349db78c7f8d80a63e4c54697647a"},
@@ -859,6 +863,7 @@ version = "3.0.0"
 description = "Python datetimes made easy"
 optional = false
 python-versions = ">=3.8"
+groups = ["main"]
 files = [
     {file = "pendulum-3.0.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:2cf9e53ef11668e07f73190c805dbdf07a1939c3298b78d5a9203a86775d1bfd"},
     {file = "pendulum-3.0.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:fb551b9b5e6059377889d2d878d940fd0bbb80ae4810543db18e6f77b02c5ef6"},
@@ -950,7 +955,7 @@ python-dateutil = ">=2.6"
 tzdata = ">=2020.1"
 
 [package.extras]
-test = ["time-machine (>=2.6.0)"]
+test = ["time-machine (>=2.6.0) ; implementation_name != \"pypy\""]
 
 [[package]]
 name = "periodiq"
@@ -958,6 +963,7 @@ version = "0.13.0"
 description = "Simple Scheduler for Dramatiq Task Queue"
 optional = false
 python-versions = "<4.0,>=3.6"
+groups = ["main"]
 files = [
     {file = "periodiq-0.13.0-py3-none-any.whl", hash = "sha256:f30d0d80ff7fa005958d1730e03f5a085420bb79aaa3b8331265d20d8a2e57af"},
     {file = "periodiq-0.13.0.tar.gz", hash = "sha256:ecd83d7614bb9e019aa2718b63c4ffe0a6c77fa0d49f33fd90c309982ddcf7cb"},
@@ -1009,6 +1015,7 @@ version = "0.21.1"
 description = "Python client for the Prometheus monitoring system."
 optional = false
 python-versions = ">=3.8"
+groups = ["main"]
 files = [
     {file = "prometheus_client-0.21.1-py3-none-any.whl", hash = "sha256:594b45c410d6f4f8888940fe80b5cc2521b305a1fafe1c58609ef715a001f301"},
     {file = "prometheus_client-0.21.1.tar.gz", hash = "sha256:252505a722ac04b0456be05c05f75f45d760c2911ffc45f2a06bcaed9f3ae3fb"},
@@ -1311,6 +1318,7 @@ version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+groups = ["main"]
 files = [
     {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
     {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
@@ -1403,6 +1411,7 @@ version = "5.2.1"
 description = "Python client for Redis database and key-value store"
 optional = false
 python-versions = ">=3.8"
+groups = ["main"]
 files = [
     {file = "redis-5.2.1-py3-none-any.whl", hash = "sha256:ee7e1056b9aea0f04c6c2ed59452947f34c4940ee025f5dd83e6a6418b6989e4"},
     {file = "redis-5.2.1.tar.gz", hash = "sha256:16f2e22dff21d5125e8481515e386711a34cbec50f0e44413dd7d9c060a54e0f"},
@@ -1542,17 +1551,6 @@ files = [
 ]
 
 [[package]]
-name = "six"
-version = "1.17.0"
-description = "Python 2 and 3 compatibility utilities"
-optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-files = [
-    {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
-    {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
-]
-
-[[package]]
 name = "sentry-sdk"
 version = "2.29.1"
 description = "Python client for Sentry (https://sentry.io)"
@@ -1630,6 +1628,17 @@ enabler = ["pytest-enabler (>=2.2)"]
 test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21) ; python_version >= \"3.9\" and sys_platform != \"cygwin\"", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf ; sys_platform != \"cygwin\"", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
 type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.develop (>=7.21) ; sys_platform != \"cygwin\"", "mypy (>=1.12,<1.14)", "pytest-mypy"]
 
+[[package]]
+name = "six"
+version = "1.17.0"
+description = "Python 2 and 3 compatibility utilities"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+groups = ["main"]
+files = [
+    {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
+    {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
+]
 
 [[package]]
 name = "sqlparse"
@@ -1666,7 +1675,6 @@ description = "Provider of IANA time zone data"
 optional = false
 python-versions = ">=2"
 groups = ["main"]
-markers = "sys_platform == \"win32\""
 files = [
     {file = "tzdata-2024.2-py2.py3-none-any.whl", hash = "sha256:a48093786cdcde33cad18c2555e8532f34422074448fbc874186f0abd79565cd"},
     {file = "tzdata-2024.2.tar.gz", hash = "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"},
@@ -1815,4 +1823,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.13"
-content-hash = "2094742c01e0a4b5bef3c3ffaa87e2d4a8606beccb208bdc686da7d87d84aae4"
+content-hash = "107e7b8cbb96e80494c53b804464e222431fd527b24af16b4d963bd8b5653e89"
