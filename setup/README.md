@@ -83,7 +83,7 @@ it should see the script location path, not root path.
 
 ## Usage ##
 
-#### To update supervisor process when conf file is changed (gunicorn.conf) ####
+#### To update supervisor process when conf file is changed via CLI (gunicorn.conf) ####
 
 `sudo supervisorctl reread` - rereads configuration update, if syntax is wrong, outputs the message
 

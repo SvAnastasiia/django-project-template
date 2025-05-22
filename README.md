@@ -19,16 +19,15 @@ Includes initial setup for a Django project.
 * Install python 3.13
 * Install poetry
 * Clone the repository
-* Create virtual environment using `python -m venv venv`
-* Activate virtual environment using `source venv/bin/activate`
 * Install dependencies using `poetry install`
+* Identify the virtual environment using `poetry env info --path` and activate it using `poetry shell` or `source <path_to_venv>/bin/activate`
 * Create .env file in the root directory (same level as .env.example) and add the variables that are contained in .env.example file
 * Ensure database is connected and check credentials (you can use default sqlite3 for local, but it is recommended to use Postgres as it is used in production)
 * Run the migrations using `python manage.py migrate`
-* Create superuser using `python manage.py createsuperuser`
+* Create superuser using `python manage.py createsuperuser` and follow the instructions to create a superuser
 * Collect static files using `python manage.py collectstatic`
 * Run the server using `python manage.py runserver`
-* Add application to the project using `python manage.py startapp <app_name>`, register it in the settings.py file in the INSTALLED_APPS list
+* If you need to add a new application to the project, use `python manage.py startapp <app_name>`, register it in the settings.py file in the INSTALLED_APPS list
 
 #### Docker-compose ####
 * Install docker and docker-compose
