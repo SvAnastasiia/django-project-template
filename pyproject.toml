@@ -21,6 +21,11 @@ pydantic = "^2.10.3"
 pydantic-settings = "^2.6.1"
 django-storages = "^1.14.4"
 sentry-sdk = "^2.29.1"
+django-dramatiq = "^0.11.6"
+django-periodiq = "^0.3.0"
+django-redis = "^5.4.0"
+dramatiq = {extras = ["redis"], version = "^1.17.1"}
+periodiq = "^0.13.0"
 
 
 [tool.poetry.group.dev.dependencies]
